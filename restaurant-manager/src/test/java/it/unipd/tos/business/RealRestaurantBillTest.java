@@ -54,4 +54,31 @@ public class RealRestaurantBillTest {
 		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 3.50));
 		assertEquals(66.50,bill.getOrderPrice(order),0);
 	}
+	
+	@Test
+	public void testGetOrderPriceDiscountedHighPrice() throws RestaurantBillException {
+		List<MenuItem> order= new ArrayList<MenuItem>();
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Margherita", 3.50));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Margherita", 3.50));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Luinguine", 7.00));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Bucatini", 5.50));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Luinguine", 7.00));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Bucatini", 5.50));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 4.00));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Luinguine", 7.00));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Luinguine", 7.00));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Bucatini", 5.50));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 4.00));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Luinguine", 7.00));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 4.00));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Luinguine", 7.00));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Bucatini", 5.50));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 4.00));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 4.00));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 4.00));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 4.00));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 3.50));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 3.50));
+		assertEquals(97.375,bill.getOrderPrice(order),0);
+	}
 }

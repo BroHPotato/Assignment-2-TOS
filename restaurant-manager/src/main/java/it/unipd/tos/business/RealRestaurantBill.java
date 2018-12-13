@@ -25,6 +25,8 @@ public class RealRestaurantBill implements RestaurantBill{
   }
  if (totPizze>10) {
   totPrice-=lowerPricePizza;}
+ if (totPrice>100) {
+  totPrice=totPrice*0.95;}
  return totPrice;
  }
 }
