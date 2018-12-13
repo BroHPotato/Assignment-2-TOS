@@ -14,7 +14,7 @@ import org.junit.Test;
 import it.unipd.tos.business.exception.RestaurantBillException;
 import it.unipd.tos.model.MenuItem;
 
-public class RealRestaurantBillTest {
+public class RealRestaurantBillTest extends RealRestaurantBill{
 	
 	private RealRestaurantBill bill=new RealRestaurantBill();
 	
