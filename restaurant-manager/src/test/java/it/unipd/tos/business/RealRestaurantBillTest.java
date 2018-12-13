@@ -21,21 +21,37 @@ public class RealRestaurantBillTest {
 	
 	
 	@Test
-	public void testGetOrderPrice() throws RestaurantBillException {
+	public void testGetOrderPriceTotalPrice() throws RestaurantBillException {
 		List<MenuItem> order= new ArrayList<MenuItem>();
 		order.add(new MenuItem(MenuItem.Item.Pizze, "Margherita", 3.50));
 		order.add(new MenuItem(MenuItem.Item.Pizze, "Margherita", 3.50));
-		order.add(new MenuItem(MenuItem.Item.Pizze, "Luinguine", 7.00));
-		order.add(new MenuItem(MenuItem.Item.Pizze, "Bucatini", 5.50));
-		order.add(new MenuItem(MenuItem.Item.Pizze, "Margherita", 3.00));
-		order.add(new MenuItem(MenuItem.Item.Pizze, "Capriciosa", 5.00));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Luinguine", 7.00));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Bucatini", 5.50));
 		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 4.00));
-		order.add(new MenuItem(MenuItem.Item.Pizze, "Margherita", 3.50));
-		order.add(new MenuItem(MenuItem.Item.Pizze, "Margherita", 3.50));
 		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 4.00));
 		order.add(new MenuItem(MenuItem.Item.Pizze, "Capriciosa", 5.00));
 		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 3.50));
-		assertEquals(51.00,bill.getOrderPrice(order),0);
+		assertEquals(36.00,bill.getOrderPrice(order),0);
 	}
 
+	@Test
+	public void testGetOrderPriceDiscountedPizzePrice() throws RestaurantBillException {
+		List<MenuItem> order= new ArrayList<MenuItem>();
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Margherita", 3.50));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Margherita", 3.50));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Luinguine", 7.00));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Bucatini", 5.50));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 4.00));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 4.00));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Capriciosa", 5.00));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Capriciosa", 5.00));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Capriciosa", 5.00));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Margherita", 3.50));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Luinguine", 7.00));
+		order.add(new MenuItem(MenuItem.Item.Primi, "Bucatini", 5.50));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 4.00));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 4.00));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 3.50));
+		assertEquals(66.50,bill.getOrderPrice(order),0);
+	}
 }

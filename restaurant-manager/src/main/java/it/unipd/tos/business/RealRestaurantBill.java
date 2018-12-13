@@ -10,10 +10,21 @@ import it.unipd.tos.model.MenuItem;
 
 public class RealRestaurantBill implements RestaurantBill{
  public double getOrderPrice(List<MenuItem> itemsOrdered) throws RestaurantBillException{
+  int totPizze=0;
+  double lowerPricePizza=0;
   double totPrice=0;
   for (int i=0; i<itemsOrdered.size(); i++) {
    totPrice+=itemsOrdered.get(i).getPrice();
+   if (itemsOrdered.get(i).getType()==it.unipd.tos.model.MenuItem.Item.Pizze) {
+    totPizze++;
+   if (totPizze==1) {
+    lowerPricePizza=itemsOrdered.get(i).getPrice();}
+   if (lowerPricePizza>itemsOrdered.get(i).getPrice()) {
+    lowerPricePizza=itemsOrdered.get(i).getPrice();}
+   }
   }
-  return totPrice;
+ if (totPizze>10) {
+  totPrice-=lowerPricePizza;}
+ return totPrice;
  }
 }
