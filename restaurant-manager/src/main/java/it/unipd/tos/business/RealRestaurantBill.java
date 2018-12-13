@@ -10,6 +10,8 @@ import it.unipd.tos.model.MenuItem;
 
 public class RealRestaurantBill implements RestaurantBill{
  public double getOrderPrice(List<MenuItem> itemsOrdered) throws RestaurantBillException{
+  if(itemsOrdered.size()>20) {
+   throw new RestaurantBillException("Troppi elementi ordinati");}
   int totPizze=0;
   double lowerPricePizza=0;
   double totPrice=0;
