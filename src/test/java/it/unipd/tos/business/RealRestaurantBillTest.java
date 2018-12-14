@@ -23,7 +23,7 @@ public class RealRestaurantBillTest extends RealRestaurantBill{
 	@Test
 	public void testGetOrderPriceTotalPrice() throws RestaurantBillException {
 		List<MenuItem> order= new ArrayList<MenuItem>();
-		order.add(new MenuItem(MenuItem.Item.Pizze, "Margherita", 3.50));
+		order.add(new MenuItem(MenuItem.Item.Pizze, "Margherita", 4.00));
 		order.add(new MenuItem(MenuItem.Item.Pizze, "Margherita", 3.50));
 		order.add(new MenuItem(MenuItem.Item.Primi, "Luinguine", 7.00));
 		order.add(new MenuItem(MenuItem.Item.Primi, "Bucatini", 5.50));
@@ -31,7 +31,7 @@ public class RealRestaurantBillTest extends RealRestaurantBill{
 		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 4.00));
 		order.add(new MenuItem(MenuItem.Item.Pizze, "Capriciosa", 5.00));
 		order.add(new MenuItem(MenuItem.Item.Pizze, "Diavola", 3.50));
-		assertEquals(36.00,bill.getOrderPrice(order),0);
+		assertEquals(36.50,bill.getOrderPrice(order),0);
 	}
 
 	@Test
